@@ -170,4 +170,24 @@ document.addEventListener('DOMContentLoaded', () => {
         highScore = localStorage.getItem(username);
     }
     updateLeaderboard();
+    });
+
+    // Add touch support for jump and restart
+canvas.addEventListener("touchstart", (e) => {
+    if (!gameOver) {
+        birdVelocity = jumpStrength; // Jump when the screen is touched
+    } else {
+        restartGame(); // Restart game if the screen is touched after game over
+    }
 });
+
+// Event listeners for keyboard input
+window.addEventListener("keydown", (e) => {
+    if (e.key === " " && !gameOver) {
+        birdVelocity = jumpStrength; // Jump when spacebar is pressed
+    }
+    if (e.key === " " && gameOver) {
+        restartGame(); // Restart game if spacebar is pressed after game over
+    }
+});
+
