@@ -181,6 +181,17 @@ canvas.addEventListener("touchstart", (e) => {
     }
 });
 
+// Disable touch scrolling and dragging on the game canvas
+canvas.addEventListener("touchmove", (e) => {
+    e.preventDefault(); // Prevent scrolling or dragging
+}, { passive: false });
+
+// Disable touch dragging for the whole body
+document.body.addEventListener("touchmove", (e) => {
+    e.preventDefault();
+}, { passive: false });
+
+
 // Event listeners for keyboard input
 window.addEventListener("keydown", (e) => {
     if (e.key === " " && !gameOver) {
