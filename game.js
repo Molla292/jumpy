@@ -191,3 +191,8 @@ window.addEventListener("keydown", (e) => {
     }
 });
 
+document.body.addEventListener("touchmove", (e) => {
+    e.preventDefault();
+}, { passive: false });
+
+
